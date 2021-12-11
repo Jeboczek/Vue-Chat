@@ -27,11 +27,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+a{
+  text-decoration: none;
+}
+
 li {
   cursor: pointer;
   gap: 30px;
   display: flex;
   align-items: center;
+  color: white;
 
   font-size: 1.2em;
 }
