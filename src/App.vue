@@ -35,5 +35,6 @@ export default {
   div.app-content{
     display: flex;
     flex-direction: row;
+    max-height: 100vh;
 }
 </style>

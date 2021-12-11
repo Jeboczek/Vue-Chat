@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
     div.room-header{
-        height: 70px;
+        height: 7%;
         width: 100%;
 
         display: flex;

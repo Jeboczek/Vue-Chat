@@ -1,6 +1,8 @@
 <template>
+<div class="room-content">
   <RoomHeader :room="room" />
-  <!-- <RoomMessages /> -->
+  <RoomMessages />
+</div>
 </template>
 
 <script>
@@ -11,7 +13,6 @@ export default {
   data() {
     return {
       room: {},
-      messages: [],
     };
   },
   props: {
@@ -34,6 +35,14 @@ export default {
   },
   components: {
     RoomHeader: require("@/components/RoomContent/RoomHeader").default,
+    RoomMessages: require("@/components/RoomContent/RoomMessages").default
   },
 };
 </script>
+
+<style lang="scss" scoped>
+div.room-content{
+  width: 80%;
+  min-height: 100%;
+}
+</style>
