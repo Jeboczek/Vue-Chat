@@ -1,7 +1,7 @@
 <template>
 <div class="app-content">
   <RoomNav />
-  <router-view/>
+  <router-view :key="$route.fullPath" />
 </div>
 </template>
 

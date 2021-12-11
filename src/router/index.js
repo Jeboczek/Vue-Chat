@@ -8,8 +8,7 @@ const routes = [
   },
   {
     name: "RoomContent",
-    // TODO: Change roomName to roomId based on Firebase id
-    path: "/room/:roomName",
+    path: "/room/:roomID",
     props: true,
     component: require("@/views/RoomContent").default
   },

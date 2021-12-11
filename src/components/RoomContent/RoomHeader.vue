@@ -1,6 +1,9 @@
 <template>
     <div class="room-header">
-        
+        <RoomIcon :color="room['color']" :icon="room['icon']" />
+        <h3>
+        {{ room["name"] }}
+        </h3>
     </div>    
 </template>
 
@@ -13,6 +16,9 @@ export default {
             required: true,
         }
     },
+    components: {
+        "RoomIcon": require("@/components/RoomIcon").default
+    },
 }
 </script>
 
@@ -20,6 +26,11 @@ export default {
     div.room-header{
         height: 70px;
         width: 100%;
+
+        display: flex;
+        align-items: center;
+        padding-left: 1em;
+        gap: 1.2em;
 
         border-bottom-style: solid;
         border-bottom-color: black;

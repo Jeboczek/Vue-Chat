@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'RoomContent', params: {roomName: 'room'}}">
+  <router-link :to="{name: 'RoomContent', params: {roomID: room['id']}}">
     <li>
       <RoomIcon :icon="room['icon']" :color="room['color']" />
       {{ room["name"] }}
@@ -30,8 +30,9 @@ li {
   gap: 30px;
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
 
   font-size: 1.2em;
+  margin-bottom: 1em;
 }
 </style>

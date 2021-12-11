@@ -81,7 +81,7 @@ div.room-nav {
 
   a:first-child{
     text-decoration: none;
-    color: white;
+    color: black;
     h1:first-child {
       margin-top: 0;
     }
