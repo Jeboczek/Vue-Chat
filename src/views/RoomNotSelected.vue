@@ -2,6 +2,9 @@
     <div class="no-selected">
         <i class="far fa-comments"></i>
         Choose room to start chatting
+        <br>
+        or
+        <router-link :to="{name: 'RoomCreate'}">create a new one</router-link>
     </div>
 </template>
 

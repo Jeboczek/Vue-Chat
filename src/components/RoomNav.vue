@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import { getDatabase, onChildAdded, onChildRemoved, ref } from "firebase/database";
+
 export default {
   name: "RoomNav",
   data() {
     return {
-      rooms: [{ name: "MyRoom", icon: "fab fa-vuejs", color: "green" }],
+      rooms: [],
       searchQuerry: "",
     };
   },
@@ -34,6 +36,29 @@ export default {
       }
     },
   },
+  created() {
+    // Get rooms from Firebase
+    var db = getDatabase()
+    var querry = ref(db, "room/")
+
+
+    onChildAdded(querry,  (snapshot) => {
+      var newRoomData = snapshot.val()
+
+      this.rooms.push({
+        "id": snapshot.key,
+        "name": newRoomData["name"],
+        "color": newRoomData["color"],
+        "icon": newRoomData["icon"],
+      })
+
+    }),
+
+    onChildRemoved(querry, (snapshot) => {
+      this.rooms = this.rooms.filter((e) => e["id"] != snapshot.key)
+    })
+    
+  }
 };
 </script>
 

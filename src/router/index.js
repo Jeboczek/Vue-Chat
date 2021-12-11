@@ -12,6 +12,11 @@ const routes = [
     path: "/room/:roomName",
     props: true,
     component: require("@/views/RoomContent").default
+  },
+  {
+    name: "RoomCreate",
+    path: "/create/room",
+    component: require("@/views/RoomCreate").default
   }
 ]
 
