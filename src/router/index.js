@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
+  {
+    name: "RoomNotSelected",
+    path: "/",
+    component: require("@/views/RoomNotSelected").default
+  }
 ]
 
 const router = createRouter({

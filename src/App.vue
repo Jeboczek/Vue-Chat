@@ -1,6 +1,8 @@
 <template>
+<div class="app-content">
   <RoomNav />
   <router-view/>
+</div>
 </template>
 
 <script>
@@ -29,4 +31,9 @@ export default {
     border-style: solid;
     border-color: black;  
   }
+
+  div.app-content{
+    display: flex;
+    flex-direction: row;
+}
 </style>

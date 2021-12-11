@@ -1,6 +1,6 @@
 <template>
   <div class="room-nav">
-    <h1>Rooms</h1>
+    <h1>Vue chat</h1>
     <SearchBar @input="onSearch" />
     <ul>
       <RoomLink v-for="room in getRooms" :key="room['name']" :room="room" />
@@ -47,6 +47,10 @@ div.room-nav {
   min-height: 100vh;
   padding: 20px 20px;
   text-align: center;
+
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: black;
 
   h1:first-child {
     margin-top: 0;
