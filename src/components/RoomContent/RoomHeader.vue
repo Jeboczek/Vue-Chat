@@ -18,11 +18,11 @@ export default {
 
 <style lang="scss" scoped>
     div.room-header{
-        height: 50px;
+        height: 70px;
         width: 100%;
 
         border-bottom-style: solid;
-        border-bottom-color: dark;
+        border-bottom-color: black;
         border-bottom-width: 2px;
     }
 </style>
