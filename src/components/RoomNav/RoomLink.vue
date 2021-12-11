@@ -1,51 +1,38 @@
 <template>
+  <router-link :to="{name: 'RoomContent', params: {roomName: 'room'}}">
     <li :style="getLiStyle">
-        <div class="room-icon">
-            <i :class="room['icon']"></i>
-        </div>
-        {{ room["name"] }}
+      <RoomIcon :icon="room['icon']" :color="room['color']" />
+      {{ room["name"] }}
     </li>
+  </router-link>
 </template>
 
 <script>
 export default {
-    name: "RoomLink",
-    props: {
-        room: Object,
+  name: "RoomLink",
+  props: {
+    room: Object,
+  },
+  computed: {
+    getLiStyle() {
+      return {
+        "--icon-color": this.room["color"],
+      };
     },
-    computed: {
-        getLiStyle(){
-            return {
-                "--icon-color": this.room["color"]
-            }
-        }
-    }
-}
+  },
+  components: {
+    RoomIcon: require("@/components/RoomIcon").default,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-    li{
-        cursor: pointer;
-        gap: 30px;
-        display: flex;
-        align-items: center;
+li {
+  cursor: pointer;
+  gap: 30px;
+  display: flex;
+  align-items: center;
 
-        font-size: 1.2em;
-
-        div.room-icon{
-            width: 40px;
-            height: 40px;
-            background-color: var(--icon-color) !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 100px;
-            
-            i{
-                font-size: 20px !important;
-                color: white;
-            }
-        }
-    }
-
+  font-size: 1.2em;
+}
 </style>
