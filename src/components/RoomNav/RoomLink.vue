@@ -1,6 +1,6 @@
 <template>
   <router-link :to="{name: 'RoomContent', params: {roomName: 'room'}}">
-    <li :style="getLiStyle">
+    <li>
       <RoomIcon :icon="room['icon']" :color="room['color']" />
       {{ room["name"] }}
     </li>
@@ -12,13 +12,6 @@ export default {
   name: "RoomLink",
   props: {
     room: Object,
-  },
-  computed: {
-    getLiStyle() {
-      return {
-        "--icon-color": this.room["color"],
-      };
-    },
   },
   components: {
     RoomIcon: require("@/components/RoomIcon").default,

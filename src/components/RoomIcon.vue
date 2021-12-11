@@ -29,7 +29,6 @@ export default {
 div.room-icon {
   width: 40px;
   height: 40px;
-  background-color: var(--icon-color) !important;
   display: flex;
   align-items: center;
   justify-content: center;
