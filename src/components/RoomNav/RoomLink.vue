@@ -33,8 +33,8 @@ export default {
         font-size: 1.2em;
 
         div.room-icon{
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background-color: var(--icon-color) !important;
             display: flex;
             align-items: center;
@@ -42,7 +42,8 @@ export default {
             border-radius: 100px;
             
             i{
-                font-size: 1.3em !important;
+                font-size: 20px !important;
+                color: white;
             }
         }
     }
