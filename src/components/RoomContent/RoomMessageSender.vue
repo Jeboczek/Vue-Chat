@@ -29,27 +29,28 @@ export default {
             }
         },
         sendMessage(){
-            console.log(this.roomID)
+            if (this.messageContent) {
+                let usernameStorage = UsernameStorage.getInstance()
 
-            let usernameStorage = UsernameStorage.getInstance()
-
-            if (!usernameStorage.isUsernameProvided()) {
-                let newUsername = prompt("Set your username")
-                if (newUsername) {
-                    usernameStorage.setUsername(newUsername)
-                }else{
-                    return
+                if (!usernameStorage.isUsernameProvided()) {
+                    let newUsername = prompt("Set your username")
+                    if (newUsername) {
+                        usernameStorage.setUsername(newUsername)
+                    }else{
+                        return
+                    }
                 }
+
+                let db = getDatabase();
+                let query = ref(db, `/room/${this.roomID}/message`)
+                push(query, {
+                    username: usernameStorage.getUsername(),
+                    content: this.messageContent
+                })
+
+                this.messageContent = ""
             }
 
-            let db = getDatabase();
-            let query = ref(db, `/room/${this.roomID}/message`)
-            push(query, {
-                username: usernameStorage.getUsername(),
-                content: this.messageContent
-            })
-
-            this.messageContent = ""
         }
     },
     computed: {
