@@ -1,19 +1,7 @@
-# vue-chat
+# Vue-Chat
+## What is it?
+A simple web application that allows you to communicate with others using rooms. The project uses Firebase to exchange messages.
 
-## Project setup
-```
-npm install
-```
+![VueChat](github/vuechat.png)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The application was created just to get familiar with the Vue framework, it is not intended for production use.
