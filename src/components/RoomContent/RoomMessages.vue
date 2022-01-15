@@ -1,6 +1,6 @@
 <template>
     <div class="room-messages">
-        <RoomMessage v-for="message in messages" :key="message['id']" :message="message" />
+        <RoomMessage v-for="message in messages" :key="message['id']" :message="message" :color="room['color']" />
     </div>
     <div class="new-message">
         <RoomSender :roomID="roomID" />
@@ -16,6 +16,10 @@ export default {
             type: String,
             required: true,
         },
+        room: {
+            type: Object,
+            required: true,
+        }
     },
     data() {
         return {
@@ -27,6 +31,7 @@ export default {
         RoomSender: require("@/components/RoomContent/RoomMessageSender").default,
     },
     async created() {
+        console.log(this.room)
         var db = getDatabase()
         var query = ref(db, `/room/${this.roomID}/message`)
 

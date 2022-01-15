@@ -19,6 +19,9 @@ export default {
     components: {
         "RoomIcon": require("@/components/RoomIcon").default
     },
+    created() {
+        console.log(this.room["color"])
+    }
 }
 </script>
 

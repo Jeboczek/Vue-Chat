@@ -1,6 +1,6 @@
 <template>
     <div class="message">
-        <div v-if="!myMessage" class="avatar">{{message["username"][0]}}</div>
+        <div v-if="!myMessage" class="avatar" :style="{backgroundColor: color}">{{message["username"][0]}}</div>
         <div class="message-content" :class="{'my-message': myMessage}">{{message["content"]}}
         <p id="author" v-if="!myMessage">{{message["username"]}}</p>
         </div>
@@ -16,6 +16,10 @@ export default {
         message: {
             type: Object,
             required: true,
+        },
+        color: {
+            type: String,
+            required: true,
         }
     },
     computed: {
@@ -23,7 +27,7 @@ export default {
             let usernameStorage = UsernameStorage.getInstance()
             return usernameStorage.getUsername() === this.message.username;
         }
-    }
+    },
 }
 </script>
 
@@ -41,7 +45,7 @@ export default {
         div.avatar{
             width: 2.5em;
             height: 2.5em;
-            background-color: green;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
