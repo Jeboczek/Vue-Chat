@@ -48,9 +48,9 @@ export default {
             event.preventDefault()
 
             var db = getDatabase()
-            var querry = ref(db, "room/")
+            var query = ref(db, "room/")
 
-            push(querry, {
+            push(query, {
                 name: this.roomName,
                 color: this.roomColor,
                 icon: this.roomIcon,

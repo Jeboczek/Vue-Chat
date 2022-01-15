@@ -1,11 +1,13 @@
 <template>
     <div class="message">
         <div v-if="!myMessage" class="avatar">{{message["username"][0]}}</div>
-        <div class="message-content">{{message["content"]}}</div>
+        <div class="message-content" :class="{'my-message': myMessage}">{{message["content"]}}</div>
     </div>
 </template>
 
 <script>
+import { UsernameStorage } from "@/lib/UsernameStorage/UsernameStorage.js";
+
 export default {
     name: "RoomMessage",
     props: {
@@ -15,17 +17,22 @@ export default {
         }
     },
     computed: {
-        // TODO: Write this method after implementing username's 
         myMessage(){
-            return false
+            let usernameStorage = UsernameStorage.getInstance()
+            return usernameStorage.getUsername() === this.message.username;
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    div.my-message{
+        margin-left: auto !important;
+    }
+
     div.message{
         display: flex;
+        margin-bottom: 10px;
         
         align-items: center;
 

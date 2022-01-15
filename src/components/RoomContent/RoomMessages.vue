@@ -3,7 +3,7 @@
         <RoomMessage v-for="message in messages" :key="message['id']" :message="message" />
     </div>
     <div class="new-message">
-        <RoomSender />
+        <RoomSender :roomID="roomID" />
     </div>
 </template>
 
@@ -52,7 +52,11 @@ export default {
     div.new-message {
         width: 100%;
         height: 5%;
-        
+
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
         border-top-style: solid;
         border-top-width: 2px;
         border-top-color: black;
