@@ -1,7 +1,9 @@
 <template>
     <div class="message">
         <div v-if="!myMessage" class="avatar">{{message["username"][0]}}</div>
-        <div class="message-content" :class="{'my-message': myMessage}">{{message["content"]}}</div>
+        <div class="message-content" :class="{'my-message': myMessage}">{{message["content"]}}
+        <p id="author" v-if="!myMessage">{{message["username"]}}</p>
+        </div>
     </div>
 </template>
 
@@ -53,6 +55,12 @@ export default {
             width: fit-content;
             border-radius: 24px;
             color: white;
+        }
+
+        p#author{
+            font-size: 8pt;
+            margin: 0;
+            opacity: 0.7;
         }
     }
 </style>

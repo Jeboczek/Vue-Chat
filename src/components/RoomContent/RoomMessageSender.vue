@@ -1,5 +1,5 @@
 <template>
-    <input type="text" v-model="messageContent" placeholder="Your message..." >
+    <input @keydown="ifEnterSendMessage" type="text" id="message-content" v-model="messageContent" placeholder="Your message..." >
     <a>
         <i @click="sendMessage" class="fas fa-paper-plane"></i>
     </a>
@@ -23,6 +23,11 @@ export default {
         }
     },
     methods: {
+        ifEnterSendMessage(event){
+            if (event.key == "Enter") {
+                this.sendMessage()
+            }
+        },
         sendMessage(){
             console.log(this.roomID)
 
@@ -43,6 +48,8 @@ export default {
                 username: usernameStorage.getUsername(),
                 content: this.messageContent
             })
+
+            this.messageContent = ""
         }
     },
     computed: {
