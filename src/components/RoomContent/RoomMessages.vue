@@ -3,20 +3,40 @@
         <RoomMessage v-for="message in messages" :key="message['id']" :message="message" />
     </div>
     <div class="new-message">
-
+        <RoomSender />
     </div>
 </template>
 
 <script>
+import { getDatabase, onChildAdded, ref} from '@firebase/database'
 export default {
     name: "RoomMessages",
+    props: {
+        roomID: {
+            type: String,
+            required: true,
+        },
+    },
     data() {
         return {
-            messages: [{"id": "abc", "content": "Hello, world", "username": "Jamnik"}],
+            messages: [],
         }
     },
     components: {
-        RoomMessage: require("@/components/RoomContent/RoomMessage").default
+        RoomMessage: require("@/components/RoomContent/RoomMessage").default,
+        RoomSender: require("@/components/RoomContent/RoomMessageSender").default,
+    },
+    async created() {
+        var db = getDatabase()
+        var query = ref(db, `/room/${this.roomID}/message`)
+
+        onChildAdded(query, (snapshot) => {
+            var newMessage = snapshot.val()
+
+            this.messages.push(
+                {"username": newMessage.username, "content": newMessage.content}
+            )
+        })
     }
 }
 </script>

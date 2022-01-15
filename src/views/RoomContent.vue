@@ -1,7 +1,7 @@
 <template>
 <div class="room-content">
   <RoomHeader :room="room" />
-  <RoomMessages />
+  <RoomMessages :roomID="roomID" />
 </div>
 </template>
 

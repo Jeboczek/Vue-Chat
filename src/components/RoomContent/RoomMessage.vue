@@ -45,6 +45,7 @@ export default {
             background-color: black;
             width: fit-content;
             border-radius: 24px;
+            color: white;
         }
     }
 </style>
