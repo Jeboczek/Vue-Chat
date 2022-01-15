@@ -1,26 +1,32 @@
+import Cookies from "js-cookie";
+
 export class UsernameStorage {
     static instance = undefined;
-  
-    constructor () {
-      this.username = undefined;
+
+    constructor() {
     }
-  
-    isUsernameProvided(){
-      return this.username !== undefined;
+
+    isUsernameProvided() {
+        return Cookies.get("username") !== undefined;
     }
-  
+
     setUsername(username) {
-      this.username = username;
+        Cookies.set("username", username)
     }
-  
-    getUsername(){
-      return this.username;
+
+    getUsername() {
+        let username = Cookies.get("username")
+        if (username === undefined) {
+            return "";
+        }else{
+            return username;
+        }
     }
-  
+
     static getInstance() {
-      if (UsernameStorage.instance === undefined) {
-        UsernameStorage.instance =  new UsernameStorage();
-      }
-      return UsernameStorage.instance;
+        if (UsernameStorage.instance === undefined) {
+            UsernameStorage.instance = new UsernameStorage();
+        }
+        return UsernameStorage.instance;
     }
-  }
+}

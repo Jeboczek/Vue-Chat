@@ -46,7 +46,9 @@ export default {
         width: 100%;
         height: 88%;
 
-        padding: 20px
+        padding: 20px;
+        overflow: scroll;
+        overflow-x: hidden;
     }
 
     div.new-message {
